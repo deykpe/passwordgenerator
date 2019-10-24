@@ -19,13 +19,13 @@ function functionpassword() {
     var yesNumber = confirm("Click Ok to have Number characters");
     var i=1
     var passwordgen = "";
-    while(I <= passwordlength) 
+    while( i <= passwordlength) 
     {
-        if(yesSpecial && i <= passwordlength) 
-        {
+        if(yesSpecial && i <= passwordlength) {
             var rndnum = Math.floor(Math.random()*specialCharacters.length);
             passwordgen = passwordgen + specialCharacters[rndnum];
             i++;
+            console.log(passwordgen)
         }
         if(yesLower && i <= passwordlength) 
         {
@@ -36,7 +36,7 @@ function functionpassword() {
         if(yesUpper && i <= passwordlength) 
         {
             var rndnum = Math.floor(Math.random()*uppercaseCharacters.length);
-            passwordgen = passwordgen + upperCharacters[rndnum];
+            passwordgen = passwordgen + uppercaseCharacters[rndnum];
             i++;
         }
         if(yesNumber && i <= passwordlength) 
@@ -48,4 +48,12 @@ function functionpassword() {
         
     }
     document.getElementById("output").innerHTML=passwordgen
+       }
+
+       function functioncopy(){
+        var textElement = document.getElementById("output");
+        textElement.focus()
+        textElement.select();
+        document.execCommand("copy"); 
+        alert("password copied to clip board")
        }
